@@ -14,7 +14,7 @@ public class Main {
         System.out.println("Добро пожаловать в нашу игровую комнату! \nДля ребенка какого возраста вам нужна комната(1-4,4-7,7+)"+"\nДля ребенка возрастом(1-4) нажмите 1, для возраста(4-7) нажмите и 3 для детей старше 7 лет");
         Scanner scanner = new Scanner(in);
         int age = scanner.nextInt();
-        System.out.println(11);
+        System.out.println(112);
         while(1<=age && age<=3) {
             if (age == 1) {
                 System.out.println("В какую цену вы хотите уложится?");
