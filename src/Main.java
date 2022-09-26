@@ -1,10 +1,7 @@
 import classes.*;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.lang.System.in;
 
@@ -37,45 +34,71 @@ public class Main {
         fileReader(new File("/home/iskender/Tariel/task14/src/text/tar.txt"));
 
 
+
     }
 
     static String[][] sorter(String[][]a){
-        Arrays.sort(a, Comparator.comparingDouble(o -> Double.valueOf(o[4])));
+        Arrays.sort(a, Comparator.comparingDouble(o -> Double.parseDouble(o[4])));
         return a;
     }
+
+
     public static int choice(int total) throws IOException {
         Scanner scanner = new Scanner(System.in);
+        while (total>=0) {
             System.out.println("Вы хотите добавить мячи?");
             if (scanner.nextLine().equals("yes")) {
-                BallsWriter(getBalls());
+                Balls balls = getBalls();
+                total -= balls.getPrice() * balls.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                BallsWriter(balls);
             }
             System.out.println("Вы хотите добавить кубики?");
             if (scanner.nextLine().equals("yes")) {
-                CubesWriter(getCubes());
+                Cubes cubes = getCubes();
+                total -= cubes.getPrice() * cubes.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                CubesWriter(cubes);
             }
             System.out.println("Вы хотите добавить куклы?");
             if (scanner.nextLine().equals("yes")) {
-                DollsWriter(getDolls());
+                Dolls dolls = getDolls();
+                total -= dolls.getPrice() * dolls.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                DollsWriter(dolls);
 
             }
             System.out.println("Вы хотите добавить средние машинки?");
             if (scanner.nextLine().equals("yes")) {
-                MediumToyCarsWriter(getMediumToyCars());
+                MediumToyCars mediumToyCars = getMediumToyCars();
+                total -= mediumToyCars.getPrice() * mediumToyCars.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                MediumToyCarsWriter(mediumToyCars);
 
             }
             System.out.println("Вы хотите добавить маленькие машинки?");
             if (scanner.nextLine().equals("yes")) {
-                SmallToyCarsWriter(getSmallToyCars());
+                SmallToyCars smallToyCars = getSmallToyCars();
+                total -= smallToyCars.getPrice() * smallToyCars.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                SmallToyCarsWriter(smallToyCars);
 
             }
             System.out.println("Вы хотите добавить большие машинки?");
             if (scanner.nextLine().equals("yes")) {
-                BigToyCarsWriter(getBigToyCars());
+                BigToyCars bigToyCars = getBigToyCars();
+                total -= bigToyCars.getPrice() * bigToyCars.getQuantity();
+                System.out.println("Ваш остаток равен - "+total);
+                BigToyCarsWriter(bigToyCars);
 
 
+            }
         }
         return total;
     }
+
+
+
 
     public static Balls getBalls (){
         Scanner scanner = new Scanner(System.in);
@@ -91,6 +114,7 @@ public class Main {
         return balls;
     }
 
+
     public static SmallToyCars getSmallToyCars (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Сколько маленьких машинок вы хотите вы хотите?");
@@ -98,49 +122,49 @@ public class Main {
         System.out.println("Каую модель машины вы хотите вы хотите?");
         scanner.nextLine();
         String Type = scanner.nextLine();
-        SmallToyCars smallToyCars = new SmallToyCars(200,50,"China",quantity,Type);
+        SmallToyCars smallToyCars = new SmallToyCars(300,50,"China",quantity,Type);
         return smallToyCars;
     }
     public static MediumToyCars getMediumToyCars (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Сколько маленьких машинок вы хотите вы хотите?");
+        System.out.println("Сколько маленьких машинок вы хотите?");
         int quantity = scanner.nextInt();
-        System.out.println("Каую модель машины вы хотите вы хотите?");
+        System.out.println("Каую модель машины вы хотите?");
         scanner.nextLine();
         String Type = scanner.nextLine();
-        MediumToyCars mediumToyCars = new MediumToyCars(200,50,"China",quantity,Type);
+        MediumToyCars mediumToyCars = new MediumToyCars(150,150,"China",quantity,Type);
         return mediumToyCars;
     }
 
     public static BigToyCars getBigToyCars (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Сколько маленьких машинок вы хотите вы хотите?");
+        System.out.println("Сколько маленьких машинок вы хотите?");
         int quantity = scanner.nextInt();
-        System.out.println("Каую модель машины вы хотите вы хотите?");
+        System.out.println("Какую модель машины вы хотите?");
         scanner.nextLine();
         String Type = scanner.nextLine();
-        BigToyCars bigToyCars = new BigToyCars(200,50,"China",quantity,Type);
+        BigToyCars bigToyCars = new BigToyCars(140,250,"China",quantity,Type);
         return bigToyCars;
     }
     public static Cubes getCubes (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Сколько кубиков вы хотите вы хотите?");
+        System.out.println("Сколько кубиков вы хотите?");
         int quantity = scanner.nextInt();
-        System.out.println("Какую модель кубика вы хотите вы хотите?");
+        System.out.println("Какую модель кубика вы хотите?");
         scanner.nextLine();
         String Type = scanner.nextLine();
-        Cubes cubes = new Cubes(150,100,"Ireland",quantity,Type);
+        Cubes cubes = new Cubes(150,90,"Ireland",quantity,Type);
         return cubes;
     }
 
     public static Dolls getDolls (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Сколько кукол вы хотите вы хотите?");
+        System.out.println("Сколько кукол вы хотите?");
         int quantity = scanner.nextInt();
-        System.out.println("Какую модель кукол вы хотите вы хотите?");
+        System.out.println("Какую модель кукол вы хотите");
         scanner.nextLine();
         String Type = scanner.nextLine();
-        Dolls dolls = new Dolls(150,100,"Ireland",quantity,"medium");
+        Dolls dolls = new Dolls(150,70,"Ireland",quantity,"medium");
         return dolls;
     }
 
@@ -160,21 +184,21 @@ public class Main {
     }
     public static void DollsWriter(Dolls dolls) throws IOException {
         File file = new File("/home/iskender/Tariel/task14/src/text/tar.txt");
-        FileWriter fileWriter = new FileWriter(file);
+        FileWriter fileWriter = new FileWriter(file,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(dolls.getPrice()+" "+dolls.getWeight()+" "+dolls.getMaker() +" "+ dolls.getQuantity()+" "+dolls.getSize()+" "+dolls.getName()+"\n");
         bufferedWriter.close();
     }
     public static void SmallToyCarsWriter(SmallToyCars smallToyCars) throws IOException {
         File file = new File("/home/iskender/Tariel/task14/src/text/tar.txt");
-        FileWriter fileWriter = new FileWriter(file);
+        FileWriter fileWriter = new FileWriter(file,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(smallToyCars.getPrice()+" "+smallToyCars.getWeight()+" "+smallToyCars.getMaker() +" "+ smallToyCars.getQuantity()+" "+smallToyCars.getModel()+" "+smallToyCars.getName()+"\n");
         bufferedWriter.close();
     }
     public static void MediumToyCarsWriter(MediumToyCars mediumToyCars) throws IOException {
         File file = new File("/home/iskender/Tariel/task14/src/text/tar.txt");
-        FileWriter fileWriter = new FileWriter(file);
+        FileWriter fileWriter = new FileWriter(file,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
          bufferedWriter.write(mediumToyCars.getPrice()+" "+mediumToyCars.getWeight()+" "+mediumToyCars.getMaker() +" "+ mediumToyCars.getQuantity()+" "+mediumToyCars.getModel()+" "+mediumToyCars.getName()+"\n");
         bufferedWriter.close();
@@ -182,7 +206,7 @@ public class Main {
 
     public static void BigToyCarsWriter(BigToyCars bigToyCars) throws IOException {
         File file = new File("/home/iskender/Tariel/task14/src/text/tar.txt");
-        FileWriter fileWriter = new FileWriter(file);
+        FileWriter fileWriter = new FileWriter(file,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(bigToyCars.getPrice()+" "+bigToyCars.getWeight()+" "+bigToyCars.getMaker() +" "+ bigToyCars.getQuantity()+" "+bigToyCars.getModel()+" "+bigToyCars.getName()+"\n");
         bufferedWriter.close();
@@ -198,19 +222,24 @@ public class Main {
 
 
     }
+
+
     public static void fileReader(File file) throws FileNotFoundException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         try {
             Scanner scanner = new Scanner(System.in);
             String nextLine;
+            List<List> array = new ArrayList<>();
             while ((nextLine = bufferedReader.readLine()) != null) {
                 StringBuilder stringBuilder = new StringBuilder(nextLine);
                 for (int i = 0; i < stringBuilder.length(); i++) {
                     if (stringBuilder.charAt(i) == '"') stringBuilder.deleteCharAt(i);
                 }
-                List<String> array = List.of(stringBuilder.toString().split(" "));
-                 System.out.println(array.get(0) + " " + array.get(array.size()-1));
-            }
+                array.add(List.of(stringBuilder.toString().split(" ")));
+
+           }
+            System.out.println(array);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
