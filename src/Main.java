@@ -18,7 +18,6 @@ public class Main {
             if (age == 1) {
                 System.out.println("В какую цену вы хотите уложится?");
                 int price = scanner.nextInt();
-                System.out.println(11);
 
 
                 break;
