@@ -4,13 +4,17 @@ import java.util.Objects;
 
 public class Dolls extends Toys{
     private String size;
-    private String ageRange;
+
+    public String getName() {
+        return name;
+    }
+
+    private final String name = "Dolls";
 
     @Override
     public String toString() {
         return "Dolls{" +
                 "size='" + size + '\'' +
-                ", ageRange='" + ageRange + '\'' +
                 '}';
     }
 
@@ -22,18 +26,11 @@ public class Dolls extends Toys{
         this.size = size;
     }
 
-    public String getAgeRange() {
-        return ageRange;
-    }
 
-    public void setAgeRange(String ageRange) {
-        this.ageRange = ageRange;
-    }
 
-    public Dolls(int price, int weight, String maker, int quantity, String size, String ageRange) {
+    public Dolls(int price, int weight, String maker, int quantity, String size) {
         super(price, weight, maker, quantity);
         this.size = size;
-        this.ageRange = ageRange;
     }
 
     @Override

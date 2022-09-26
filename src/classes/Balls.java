@@ -4,6 +4,11 @@ public class Balls extends Toys{
     private String SportType;
     private String size;
 
+    private final String name = "Balls";
+    public String getName() {
+        return name;
+    }
+
     public Balls(int price, int weight, String maker, int quantity, String sportType, String size) {
         super(price, weight, maker, quantity);
         SportType = sportType;

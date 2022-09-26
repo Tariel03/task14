@@ -2,6 +2,10 @@ package classes;
 
 public class BigToyCars extends SmallToyCars {
     private final String size = "medium";
+    private final String name = "toyCar";
+    public String getName() {
+        return name;
+    }
 
     @Override
     public void makeNoise() {

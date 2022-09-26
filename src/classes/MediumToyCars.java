@@ -2,6 +2,10 @@ package classes;
 
 public class MediumToyCars extends SmallToyCars {
     private final String size = "medium";
+    private final String name = "toyCar";
+    public String getName() {
+        return name;
+    }
 
     public MediumToyCars(int price, int weight, String maker, int quantity, String model) {
         super(price, weight, maker, quantity, model);

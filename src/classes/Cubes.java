@@ -3,6 +3,11 @@ package classes;
 public class Cubes extends Toys{
     String typeOfCube;
 
+    private final String name = "Cubes";
+    public String getName() {
+        return name;
+    }
+
     public String getTypeOfCube() {
         return typeOfCube;
     }

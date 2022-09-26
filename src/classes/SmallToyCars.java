@@ -3,6 +3,10 @@ package classes;
 public class SmallToyCars extends Toys {
     private String model;
     private final String size = "small";
+    private final String name = "toyCar";
+    public String getName() {
+        return name;
+    }
 
     public SmallToyCars(int price, int weight, String maker, int quantity, String model) {
         super(price, weight, maker, quantity);
